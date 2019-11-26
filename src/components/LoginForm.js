@@ -23,7 +23,9 @@ class LoginForm extends Component {
 
     onSubmit = (event) => {
         event.preventDefault();
-        this.validate();
+        if (this.validate()) {
+            alert('OK');
+        }
     }
 
     validate = () => {
@@ -34,6 +36,7 @@ class LoginForm extends Component {
                 errorPassword: ''
             }
         });
+        console.log(this.state);
         const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const regPassword = /^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]){6,25}.*$/;
 
@@ -46,10 +49,10 @@ class LoginForm extends Component {
             /*const errors = this.state.errors;
             errors.errorPassword = `Le mot de passe n'est pas au bon format`;
             this.setState({ errors: errors });*/
-            this.setState({ errors: Object.assign(this.state.errors, { errorPassword: `Le mail n'est pas au bon format` }) });
+            this.setState({ errors: Object.assign(this.state.errors, { errorPassword: `Le mot de passe n'est pas au bon format` }) });
         }
         this.setState({ valid });
-
+        return valid;
     }
 
     render() {
