@@ -16,6 +16,9 @@ class Header extends React.Component {
                     </Nav>
 
                 </Navbar.Collapse>
+                <Navbar.Collapse className="justify-content-end">
+                    <Link to="/login" className="nav-link">Se connecter</Link>
+                </Navbar.Collapse>
             </Navbar>
         )
     }
