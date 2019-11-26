@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import InputValidate from './InputValidate';
 
 class LoginForm extends Component {
 
@@ -12,8 +13,6 @@ class LoginForm extends Component {
             errorPassword: ''
         }
     }
-
-
 
     onChange = (event) => {
         // console.log('this', this);
@@ -36,7 +35,6 @@ class LoginForm extends Component {
                 errorPassword: ''
             }
         });
-        console.log(this.state);
         const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const regPassword = /^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]){6,25}.*$/;
 
@@ -60,7 +58,8 @@ class LoginForm extends Component {
             <Form onSubmit={this.onSubmit} noValidate>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" name="login" placeholder="Votre email" onChange={this.onChange} />
+                    <InputValidate type="email" name="login" placeholder="Votre email" onChange={this.onChange}
+                        valid={this.state.errors.errorLogin === ''} />
                     {this.state.errors.errorLogin !== '' ? (
                         <Form.Text className="text-muted alert alert-danger">
                             {this.state.errors.errorLogin}
@@ -69,7 +68,8 @@ class LoginForm extends Component {
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Mot de passe</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Votre mot de passe" onChange={this.onChange} />
+                    <InputValidate type="password" name="password" placeholder="Votre mot de passe" onChange={this.onChange}
+                        valid={this.state.errors.errorPassword === ''} />
                     {this.state.errors.errorPassword !== '' ? (
                         <Form.Text className="text-muted alert alert-danger">
                             {this.state.errors.errorPassword}
