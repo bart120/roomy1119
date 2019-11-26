@@ -8,6 +8,7 @@ class InputValidate extends Component {
         type: PropTypes.string.isRequired,
         name: PropTypes.string,
         placeholder: PropTypes.string,
+        value: PropTypes.string,
         valid: PropTypes.bool.isRequired,
         onChange: PropTypes.func
     };
@@ -15,7 +16,7 @@ class InputValidate extends Component {
     render() {
         return (
             <Form.Control type={this.props.type} name={this.props.name} placeholder={this.props.placeholder}
-                className={this.props.valid ? '' : 'error-input'} onChange={this.props.onChange} />
+                className={this.props.valid ? '' : 'error-input'} onChange={this.props.onChange} value={this.props.value} />
         );
     }
 }
