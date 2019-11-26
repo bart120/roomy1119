@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import { Alert } from 'react-bootstrap';
 import './App.css';
+import Header from './components/Header';
+import { Container } from 'react-bootstrap';
+import Footer from './components/Footer';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './conf/Routes';
 
 class App extends Component {
 
   render() {
 
     return (
-      <div className="App" >
-
-      </div>
+      <Container>
+        <Router>
+          <Header></Header>
+          <Routes />
+          <Footer></Footer>
+        </Router>
+      </Container>
     );
   }
 
