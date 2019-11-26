@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import LoginForm from '../../components/LoginForm';
 
 class LoginPage extends Component {
-    state = {}
+    state = {};
     render() {
         return (
-            <div>Login</div>
+            <>
+                <h2>Connexion</h2>
+                <LoginForm />
+            </>
         );
     }
 }
