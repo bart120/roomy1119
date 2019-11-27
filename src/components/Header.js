@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'C:/Users/vlecl/AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux';
+import { bindActionCreators } from 'redux';
 import { logout } from '../redux/actions/AuthenticationActions';
 
 class Header extends React.Component {
