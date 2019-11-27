@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'C:/Users/vlecl/AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux';
+import { logout } from '../redux/actions/AuthenticationActions';
 
 class Header extends React.Component {
 
+    logout = () => {
+        this.props.actions.actionLogout(null);
+    }
 
     render() {
         // console.log('prosp', this.props);
@@ -27,7 +32,7 @@ class Header extends React.Component {
                 <Navbar.Collapse className="justify-content-end" style={{ color: '#fff' }}>
                     {this.props.user === null ?
                         (<Link to="/login" className="nav-link">{t('header.logon')}</Link>) :
-                        (<>Bonjour {this.props.user.login} <Button>Se déconnecter</Button> </>)}
+                        (<>Bonjour {this.props.user.login} <Button onClick={this.logout}>Se déconnecter</Button> </>)}
                 </Navbar.Collapse>
             </Navbar >
         )
@@ -39,5 +44,11 @@ const mapStateToProps = (stateStore) => ({
     user: stateStore.user
 });
 
+const mapActionsToProps = (payload) => ({
+    actions: {
+        actionLogout: bindActionCreators(logout, payload)
+    }
+})
+
 const head = withTranslation()(withRouter(Header));
-export default connect(mapStateToProps)(head);
+export default connect(mapStateToProps, mapActionsToProps)(head);
