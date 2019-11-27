@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import './App.css';
 import Header from './components/Header';
 import { Container } from 'react-bootstrap';
 import Footer from './components/Footer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './conf/Routes';
+import { Spinner } from 'react-bootstrap';
 
 class App extends Component {
 
@@ -14,7 +15,9 @@ class App extends Component {
       <Container>
         <Router>
           <Header></Header>
-          <Routes />
+          <Suspense fallback={(<Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>)}>
+            <Routes />
+          </Suspense>
           <Footer></Footer>
         </Router>
       </Container>
