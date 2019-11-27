@@ -1,0 +1,14 @@
+{
+    "translation": {
+        "header": {
+            "home": "Home",
+            "rooms": "Rooms",
+            "add": "Add",
+            "logon": "Logon"
+        },
+        "login": {
+            "email": "email",
+            "password": "password"
+        }
+    }
+}

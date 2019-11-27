@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './conf/Routes';
 import { Spinner } from 'react-bootstrap';
+import './conf/translation';
 
 class App extends Component {
 

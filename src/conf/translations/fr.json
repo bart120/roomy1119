@@ -1,0 +1,14 @@
+{
+    "translation": {
+        "header": {
+            "home": "Accueil",
+            "rooms": "Salles",
+            "add": "Ajouter",
+            "logon": "Se connecter"
+        },
+        "login": {
+            "email": "email",
+            "password": "mot de passe"
+        }
+    }
+}
