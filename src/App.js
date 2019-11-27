@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './conf/Routes';
 import { Spinner } from 'react-bootstrap';
 import './conf/translation';
+import i18next from 'i18next';
 
 class App extends Component {
 
@@ -26,7 +27,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    const browserLanguage = navigator.language || navigator.userLanguage;
+    console.log('lang', browserLanguage);
+    i18next.changeLanguage(browserLanguage.split('-')[0]);
+    this.setState({});
   }
 }
 
