@@ -6,6 +6,8 @@ class LoginPage extends Component {
 
     login = (user) => {
         console.log('login', user);
+        // appel serveur
+        sessionStorage.setItem('USER', JSON.stringify({ login: user.login }));
     }
 
     render() {

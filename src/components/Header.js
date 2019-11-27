@@ -1,12 +1,15 @@
 import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
 class Header extends React.Component {
+
+
     render() {
-        //        console.log('prosp', this.props);
+        // console.log('prosp', this.props);
         const { t } = this.props;
         //const t = this.props.t;
         return (
@@ -21,12 +24,20 @@ class Header extends React.Component {
                     </Nav>
 
                 </Navbar.Collapse>
-                <Navbar.Collapse className="justify-content-end">
-                    <Link to="/login" className="nav-link">{t('header.logon')}</Link>
+                <Navbar.Collapse className="justify-content-end" style={{ color: '#fff' }}>
+                    {this.props.user === null ?
+                        (<Link to="/login" className="nav-link">{t('header.logon')}</Link>) :
+                        (<>Bonjour {this.props.user.login} <Button>Se déconnecter</Button> </>)}
                 </Navbar.Collapse>
-            </Navbar>
+            </Navbar >
         )
     }
 }
 
-export default withTranslation()(withRouter(Header));
+const mapStateToProps = (stateStore) => ({
+    isConnect: stateStore.isConnected,
+    user: stateStore.user
+});
+
+const head = withTranslation()(withRouter(Header));
+export default connect(mapStateToProps)(head);
