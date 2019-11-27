@@ -11,6 +11,10 @@ class RoomService extends BaseService {
     getRoomById(id) {
         return this.get(`${URL_ROOMS}/${id}`);
     }
+
+    addRoom(room) {
+        return this.post(URL_ROOMS, room);
+    }
 }
 
 export default RoomService;

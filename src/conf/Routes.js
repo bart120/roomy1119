@@ -3,9 +3,9 @@ import { Route } from 'react-router-dom';
 import HomePage from '../pages/home/HomePage';
 import RoomsListPage from '../pages/rooms/RoomsListPage';
 import RoomsAddPage from '../pages/rooms/RoomsAddPage';
-//import LoginPage from '../pages/authentication/LoginPage';
 import RoomsDetailPage from '../pages/rooms/RoomsDetailPage';
 
+//import LoginPage from '../pages/authentication/LoginPage';
 const LoginPage = React.lazy(() => import('../pages/authentication/LoginPage'));
 
 class Routes extends Component {
