@@ -9,10 +9,11 @@ class RoomsListPage extends Component {
     state = { rooms: null }
 
     componentDidMount() {
-        this.roomService.getRooms().then(resp => {
-            this.setState({ rooms: resp.data });
+        this.roomService.getRooms().then(data => {
+            console.log('data', data);
+            //this.setState({ rooms: resp.data });
         }).catch(err => {
-            alert(err.message);
+            alert(err);
         });
     }
 
