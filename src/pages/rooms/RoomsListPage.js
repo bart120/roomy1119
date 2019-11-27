@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RoomService from '../../services/RoomService';
 import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class RoomsListPage extends Component {
 
@@ -10,8 +11,7 @@ class RoomsListPage extends Component {
 
     componentDidMount() {
         this.roomService.getRooms().then(data => {
-            console.log('data', data);
-            //this.setState({ rooms: resp.data });
+            this.setState({ rooms: data });
         }).catch(err => {
             alert(err);
         });
@@ -28,6 +28,7 @@ class RoomsListPage extends Component {
                             <th>Nom</th>
                             <th>Prix</th>
                             <th>Places</th>
+                            <th></th>
                         </tr>
                     </thead>
                     {this.state.rooms ? (
@@ -37,6 +38,7 @@ class RoomsListPage extends Component {
                                     <td>{item.name}</td>
                                     <td>{item.price} €</td>
                                     <td>{item.seatCount}</td>
+                                    <td><Link to={`/room/${item.id}`}>voir</Link></td>
                                 </tr>
                             ))}
                         </tbody>
